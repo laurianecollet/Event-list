@@ -13,12 +13,12 @@
   					</select>
 					</div>
 					<div class="input-field col s6">
-						<input id="last_name" type="text" class="validate" v-model="newEvent.intitule" @onmouseout="toUppercase()">
+						<input id="last_name" type="text" class="validate" v-model="newEvent.intitule" @blur="newEvent.intitule = functionMaj(newEvent.intitule)">
 						<label for="last_name">Intitulé</label>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea" data-length="120" v-model="newEvent.description"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" data-length="120" v-model="newEvent.description" @blur="newEvent.description = functionMaj(newEvent.description)"></textarea>
 							<label for="textarea1">Textarea</label>
 						</div>
 					</div>
@@ -78,6 +78,8 @@
 					lieu: '',
 				},
 				disabled: true,
+				counterEvent: 0,
+
 			}
 		},
 		methods: {
@@ -96,12 +98,9 @@
 					lieu: '',
 				}
 			},
-			methods: {
-				toUppercase() {
-					console.log('salut')
-					Store.majfunction(string)
-				},
-			}
+			functionMaj(string) {
+				return Store.majfunction(string)
+			},
 		}
 	}
 

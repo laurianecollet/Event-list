@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="row">
-			<my-event v-for="event in datas.events" :key="event.id" :event="event" v-if="event.payant === true"></my-event>
+			<my-event v-for="event in events" :key="event.id" :event="event" v-if="event.payant === true"></my-event>
 		</div>
 	</div>
 </template>
@@ -16,6 +16,11 @@
 		data() {
 			return {
 				datas: Store.datas,
+			}
+		},
+		computed: {
+			events() {
+				return Store.search();
 			}
 		},
 	}

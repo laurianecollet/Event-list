@@ -9,6 +9,7 @@
 					</div>
 					<div class="card-content">
 						<p>{{event.description}}</p>
+						<p>{{event.prix | arrondi}}€</p>
 					</div>
 					<div class="card-action">
 						<button @click="deleteEvent(event)" class="btn waves-effect waves-light orange lighten-2" type="submit" name="action"><i class="material-icons">delete</i></button>
@@ -26,7 +27,7 @@
 		props: ['event'],
 		data() {
 			return {
-				datas: Store.datas
+				datas: Store.datas,
 			}
 		},
 		methods: {
@@ -35,6 +36,11 @@
 				if (position != -1) { // Si la position est trouvé on supprime la tache à la position donnée
 					Store.datas.events.splice(position, 1);
 				}
+			},
+		},
+		filters: { // pour les filtres affichés
+			arrondi: function (val) {
+				return Math.round(val * 100) / 100;
 			},
 		}
 	}

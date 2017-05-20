@@ -42,7 +42,7 @@ export const Store = {
 				"url": "https://yurplan.com/uploads/cover/51b918b5bca258c40180815c5ff2a6286d575f1b.jpg",
 				"nbbillet": 140,
 				"payant": false,
-				"prix": 45,
+				"prix": 45.63736,
 				"dateheure": "19/05/2017 à 19h45",
 				"lieu": "Le Vin des Alpes 8 Rue de Strasbourg 38000 Grenoble",
 			},
@@ -51,22 +51,19 @@ export const Store = {
 		searchByPrice: ''
 	},
 	majfunction(string) { // ca ne marche pas
-		console.log('coucou')
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	},
-	search() { // probleme dans l'affichage ...
+	search() {
 		let tab = [];
 		let reg = new RegExp(this.datas.searchByPrice, "i");
 
 		if (this.datas.searchByPrice.length > 0) {
 			tab = this.datas.events.filter((elt) => reg.test(parseInt(elt.prix)));
-			console.log(tab)
 		} else {
 			tab = this.datas.events;
 		}
 
 		return tab;
-		console.log(tab)
 
 	},
 
