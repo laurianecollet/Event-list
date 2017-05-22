@@ -10,6 +10,7 @@
 					<div class="card-content">
 						<p>{{event.description}}</p>
 						<p>{{event.prix | arrondi}}€</p>
+						<p>{{event.type}}</p>
 					</div>
 					<div class="card-action">
 						<button @click="deleteEvent(event)" class="btn waves-effect waves-light orange lighten-2" type="submit" name="action"><i class="material-icons">delete</i></button>

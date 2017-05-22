@@ -1,6 +1,12 @@
 export const Store = {
 
 	datas: {
+		categories: [
+			{ text: "Atelier", value: "Atelier" },
+			{ text: "Concert", value: "Concert" },
+			{ text: "Festival", value: "Festival" },
+			{ text: "Theatre", value: "Theatre" },
+		],
 		events: [
 			{
 				"type": "Concert",
@@ -48,7 +54,8 @@ export const Store = {
 			},
 		],
 		counter: 0,
-		searchByPrice: ''
+		searchByPrice: '',
+		searchCategorie: '',
 	},
 	majfunction(string) { // ca ne marche pas
 		return string.charAt(0).toUpperCase() + string.slice(1);

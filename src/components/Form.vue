@@ -4,12 +4,11 @@
 			<form class="col s12">
 				<div class="row">
 					<div class="input-field col s12">
-						<select class="browser-default">
+						<select class="browser-default" v-model="newEvent.type">
     					<option value="" disabled selected>Catégories</option>
-							<option value="1">Concert</option>
-							<option value="2">Festival</option>
-							<option value="3">Théâtre</option>
-							<option value="4">Atelier</option>
+							<option v-for="categorie in datas.categories" v-bind:value="categorie.value">
+   							 {{ categorie.text }}
+						  </option>
   					</select>
 					</div>
 					<div class="input-field col s6">
@@ -79,7 +78,7 @@
 				},
 				disabled: true,
 				counterEvent: 0,
-
+				datas: Store.datas
 			}
 		},
 		methods: {

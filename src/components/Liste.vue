@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="row">
-			<my-event v-for="event in events" :key="event.id" :event="event" v-if="event.payant === true"></my-event>
+			<my-event v-for="event in filterEvents" :key="event.id" :event="event" v-if="event.payant === true"></my-event>
 		</div>
 	</div>
 </template>
@@ -21,6 +21,12 @@
 		computed: {
 			events() {
 				return Store.search();
+			},
+			filterEvents() {
+				if (this.datas.searchCategorie === "") {
+					return this.datas.events
+				}
+				return this.datas.events.filter((elt) => elt.type === this.datas.searchCategorie);
 			}
 		},
 	}
